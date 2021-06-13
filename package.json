@@ -1,0 +1,29 @@
+{
+  "name": "start-apollo-server",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development nodemon ./src/server.ts",
+    "start": "cross-env NODE_ENV=production nodemon ./src/server.ts"
+  },
+  "dependencies": {
+    "@types/lodash": "^4.14.170",
+    "apollo-datasource": "^0.9.0",
+    "apollo-server": "^2.25.1",
+    "cross-env": "^7.0.3",
+    "graphql": "^15.5.0",
+    "lodash": "^4.17.21",
+    "nodemon": "^2.0.7",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cseas/start-apollo-server.git"
+  },
+  "author": "Abhijeet Singh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cseas/start-apollo-server/issues"
+  },
+  "homepage": "https://github.com/cseas/start-apollo-server#readme"
+}
