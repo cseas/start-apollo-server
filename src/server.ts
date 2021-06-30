@@ -1,6 +1,6 @@
 import { ApolloServer } from "apollo-server";
 
-import { SessionAPI } from "./datasources/SessionAPI";
+import { SessionAPI, SpeakerAPI } from "./datasources";
 import { resolvers } from "./resolvers";
 import { typeDefs } from "./schema";
 
@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 4000;
 
 const dataSources = () => ({
   sessionAPI: new SessionAPI(),
+  speakerAPI: new SpeakerAPI(),
 });
 
 const server = new ApolloServer({

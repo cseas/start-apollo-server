@@ -15,6 +15,9 @@ export const typeDefs = gql`
     ): [Session]
 
     sessionById(id: ID): Session
+
+    speakers: [Speaker]
+    speakerById(id: ID): Speaker
   }
 
   type Session {
@@ -31,5 +34,13 @@ export const typeDefs = gql`
         reason: "Too many sessions do not fit into a single track, we will be migrating to a tag based system."
       )
     level: String
+    speakers: [Speaker]
+  }
+
+  type Speaker {
+    id: ID!
+    bio: String
+    name: String
+    sessions: [Session]
   }
 `;
