@@ -20,6 +20,10 @@ export const typeDefs = gql`
     speakerById(id: ID): Speaker
   }
 
+  type Mutation {
+    toggleFavoriteSession(id: ID): Session
+  }
+
   type Session {
     id: ID!
     title: String!
@@ -35,6 +39,7 @@ export const typeDefs = gql`
       )
     level: String
     speakers: [Speaker]
+    favorite: Boolean
   }
 
   type Speaker {

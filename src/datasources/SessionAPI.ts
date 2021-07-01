@@ -21,4 +21,15 @@ export class SessionAPI extends DataSource {
     );
     return session[0];
   }
+
+  toggleFavoriteSession(id: string) {
+    const session = sessions.find(
+      (session: Session) => session.id === parseInt(id)
+    );
+
+    // @ts-ignore
+    session.favorite = !session.favorite;
+
+    return session;
+  }
 }
