@@ -32,4 +32,11 @@ export class SessionAPI extends DataSource {
 
     return session;
   }
+
+  addNewSession(session: Session) {
+    session.id = 12;
+    // @ts-ignore
+    sessions.push(session);
+    return session;
+  }
 }
