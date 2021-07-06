@@ -1,4 +1,4 @@
-import { ApolloServer } from "apollo-server";
+import { ApolloError, ApolloServer } from "apollo-server";
 
 import { SessionAPI, SpeakerAPI } from "./datasources";
 import { resolvers } from "./resolvers";
@@ -15,6 +15,16 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   dataSources,
+  formatError: (err) => {
+    // thrown when mock speaker api is off
+    // @ts-ignore
+    if (err.extensions.code === "INTERNAL_SERVER_ERROR") {
+      return new ApolloError("We are having some trouble", "ERROR", {
+        token: "uniqueToken",
+      });
+    }
+    return err;
+  },
 });
 
 server.listen({ port: PORT }).then(({ url }) => {
