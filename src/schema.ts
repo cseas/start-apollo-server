@@ -7,7 +7,7 @@ export const typeDefs = gql`
       description: String
       startsAt: String
       endsAt: String
-      room: String
+      room: Room
       day: String
       format: String
       track: String
@@ -23,6 +23,12 @@ export const typeDefs = gql`
   type Mutation {
     toggleFavoriteSession(id: ID): Session
     addNewSession(session: SessionInput): Session
+  }
+
+  enum Room {
+    Europa
+    Sol
+    Saturn
   }
 
   type Session {
