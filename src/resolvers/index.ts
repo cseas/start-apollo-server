@@ -6,4 +6,12 @@ export const resolvers = {
   Query,
   Mutation,
   Session,
+  SessionOrError: {
+    __resolveType(obj: any) {
+      if (obj.code) {
+        return "Error";
+      }
+      return "Session";
+    },
+  },
 };

@@ -19,6 +19,7 @@ export class SessionAPI extends DataSource {
     const session = sessions.filter(
       (session: Session) => session.id === parseInt(id)
     );
+    throw new Error();
     return session[0];
   }
 

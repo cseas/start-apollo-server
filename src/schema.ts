@@ -14,7 +14,7 @@ export const typeDefs = gql`
       level: String
     ): [Session]
 
-    sessionById(id: ID): Session
+    sessionById(id: ID): SessionOrError
 
     speakers: [Speaker]
     speakerById(id: ID): Speaker
@@ -55,6 +55,14 @@ export const typeDefs = gql`
     name: String
     sessions: [Session]
   }
+
+  type Error {
+    code: String
+    message: String
+    token: String
+  }
+
+  union SessionOrError = Session | Error
 
   input SessionInput {
     title: String!
